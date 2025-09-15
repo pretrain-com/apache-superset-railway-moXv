@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 
 # Install pip in the virtual environment and then install packages
 RUN /app/.venv/bin/python3 -m ensurepip --upgrade && \
-    /app/.venv/bin/python3 -m pip install --no-cache-dir mysqlclient psycopg2-binary psycopg2
+    /app/.venv/bin/python3 -m pip install --no-cache-dir mysqlclient psycopg2-binary psycopg2 
 
 # Set environment variable to install additional packages (backup method)
 ENV EXTRA_PIP_PACKAGES="mysqlclient psycopg2-binary psycopg2"
