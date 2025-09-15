@@ -11,7 +11,10 @@ RUN apt-get update && apt-get install -y \
     postgresql-client \
     && rm -rf /var/lib/apt/lists/*
 
-# Set environment variable to install additional packages
+# Install additional packages directly
+RUN pip install --no-cache-dir mysqlclient psycopg2-binary psycopg2
+
+# Set environment variable to install additional packages (backup method)
 ENV EXTRA_PIP_PACKAGES="mysqlclient psycopg2-binary psycopg2"
 
 ENV ADMIN_USERNAME $ADMIN_USERNAME
