@@ -11,9 +11,8 @@ RUN apt-get update && apt-get install -y \
     postgresql-client \
     && rm -rf /var/lib/apt/lists/*
 
-# Install DB drivers into Superset's Python environment so they're available at runtime
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir mysqlclient psycopg2-binary psycopg2
+# Set environment variable to install additional packages
+ENV EXTRA_PIP_PACKAGES="mysqlclient psycopg2-binary psycopg2"
 
 ENV ADMIN_USERNAME $ADMIN_USERNAME
 ENV ADMIN_EMAIL $ADMIN_EMAIL
